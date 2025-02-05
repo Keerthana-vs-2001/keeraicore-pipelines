@@ -1,0 +1,10 @@
+flask
+torch
+torchvision 
+torchaudio
+opencv-python-headless
+sap-computer-vision-package
+detectron2 @ git+https://github.com/facebookresearch/detectron2.git
+streamlit
+easyocr
+
