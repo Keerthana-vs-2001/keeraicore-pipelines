@@ -14,7 +14,7 @@ model_path = os.getenv("MODEL_PATH","/app/model_final.pth")
 #BASE_DIR = os.getcwd()
 metadata1 = MetadataCatalog.get("my_dataset_train")
 metadata1.thing_classes = ['web-elements', 'Button', 'Check box', 'Checked Radio button', 'Checked box', 'Dropdown box', 'Dropdown expand', 'Icon', 'Radio button', 'Scroll bar', 'Text box']
-BASE_DIR = os.getcwd()
+#BASE_DIR = os.getcwd()
 cfg = get_cfg()
 #change in path for docker--cfg.merge_from_file(os.path.join(BASE_DIR, "/content/config.yml"))
 #cfg.MODEL.WEIGHTS = (os.path.join(BASE_DIR, "/content/model_final (2).pth"))
