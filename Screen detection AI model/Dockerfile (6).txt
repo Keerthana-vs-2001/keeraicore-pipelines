@@ -1,25 +1,29 @@
 FROM python:3.11-slim
-WORKDIR /app
 RUN apt-get update && apt-get install -y \
-    libgl1 \
     wget \
     unzip \
     git \
+    python3-dev \
+    python3-pip \
+    python3-setuptools \
+    libsm6 libxext6 libxrender-dev \
+    libglib2.0-0 \
+    libx11-6 \
+    libopencv-dev \
     && rm -rf /var/lib/apt/lists/*
-
-COPY requirements.txt /app/requirements.txt
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir \
     torch \
-    torch vision \
+    torchvision \
     opencv-python-headless \
     Flask
+
 RUN git clone --branch main https://github.com/facebookresearch/detectron2.git /detectron2
 WORKDIR /detectron2
 RUN pip install --no-cache-dir .
 WORKDIR /app
-COPY model_final.pth /app/model_final.pth
-COPY config.yml /app/config.yml
-COPY inference2.py /app/inference2.py
+COPY" model_final (2).pth" /home/user/projects/ODM/.gen/odminfer/model_final (2).pth
+COPY "config (2).yaml" /home/user/projects/ODM/.gen/odminfer/config (2).yml
+COPY inference.py /home/user/projects/ODM/.gen/odminfer/inference.py
 EXPOSE 5000
-CMD("python3","inference2.py")
+CMD ["python3", "inference.py"]
